@@ -18,7 +18,7 @@ limitations under the License.
 
 -->
 
-# Repeat
+# repeat
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
@@ -76,17 +76,12 @@ str = repeat( 'beep', 0 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var round = require( '@stdlib/math-base-special-round' );
-var randu = require( '@stdlib/random-base-randu' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
 var repeat = require( '@stdlib/string-repeat' );
 
-var str = 'beep';
-var n;
 var i;
-
 for ( i = 0; i < 100; i++ ) {
-    n = round( randu()*3.0 );
-    console.log( repeat( str, n ) );
+    console.log( repeat( 'beep', discreteUniform( 0, 3 ) ) );
 }
 ```
 
