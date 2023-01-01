@@ -24,14 +24,30 @@ limitations under the License.
 
 > Repeat a string a specified number of times and return the concatenated result.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/string-repeat
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@deno/mod.js';
+var repeat = require( '@stdlib/string-repeat' );
 ```
 
 #### repeat( str, n )
@@ -60,8 +76,8 @@ str = repeat( 'beep', 0 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var repeat = require( '@stdlib/string-repeat' );
 
 var i;
 for ( i = 0; i < 100; i++ ) {
@@ -73,7 +89,97 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- /.examples -->
 
+* * *
 
+<section class="cli">
+
+## CLI
+
+<section class="installation">
+
+## Installation
+
+To use the module as a general utility, install the module globally
+
+```bash
+npm install -g @stdlib/string-repeat
+```
+
+</section>
+
+<!-- CLI usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```text
+Usage: repstr [options] [<string>] --n <repeats>
+
+Options:
+
+  -h,    --help                Print this message.
+  -V,    --version             Print the package version.
+         --n repeats           Number of repetitions.
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- CLI usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   If the split separator is a [regular expression][mdn-regexp], ensure that the `split` option is either properly escaped or enclosed in quotes.
+
+    ```bash
+    # Not escaped...
+    $ echo -n $'beep\nboop' | repstr --n 3 --split /\r?\n/
+
+    # Escaped...
+    $ echo -n $'beep\nboop' | repstr --n 3 --split /\\r?\\n/
+    ```
+
+-   The implementation ignores trailing delimiters.
+
+</section>
+
+<!-- /.notes -->
+
+<section class="examples">
+
+### Examples
+
+```bash
+$ repstr beep --n 5
+beepbeepbeepbeepbeep
+```
+
+To use as a [standard stream][standard-streams],
+
+```bash
+$ echo -n $'ab' | repstr --n 3
+ababab
+```
+
+By default, when used as a [standard stream][standard-streams], the implementation assumes newline-delimited data. To specify an alternative delimiter, set the `split` option.
+
+```bash
+$ echo -n $'beep\tboop' | repstr --n 3 --split '\t'
+beepbeepbeep
+boopboopboop
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.cli -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -98,7 +204,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -115,7 +221,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -164,7 +270,7 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad/tree/deno
+[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad
 
 <!-- </related-links> -->
 
