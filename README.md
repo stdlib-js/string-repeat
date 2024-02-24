@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@deno/mod.js';
+import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@v0.2.1-deno/mod.js';
 ```
 
 #### repeat( str, n )
@@ -72,7 +72,7 @@ str = repeat( 'beep', 0 );
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@deno/mod.js';
+import repeat from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-repeat@v0.2.1-deno/mod.js';
 
 var i;
 for ( i = 0; i < 100; i++ ) {
